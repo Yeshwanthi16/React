@@ -3,24 +3,59 @@ import React, { useState } from "react";
 import './ExpensesForm.css';
 
 const ExpenseForm = () => {
-
+    
+    //*Using multiple state approach  
 const [enteredTitle, setEnteredTitle] = useState('');
 const [enteredAmount, setEnteredAmount] = useState('');
 const [enteredDate, setEnteredDate] = useState('');
 
+//*Using Single sate 
+// const [enteredInput, setUserInput] = useState({
+//     enteredTitle: '',
+//     enteredAmount: '',
+//     enteredDate: '',
+// })
+
 const textevent = (event) =>
 {
     setEnteredTitle(event.target.value)
+
+    //*Using single state method 1
+    // setUserInput({
+    //     ...enteredInput,enteredTitle: event.target.value
+    // })
+
+    //*Using single state method 2 (storing the preState)
+    // setUserInput((prevState) => {
+    //     return { ...prevState, enteredTitle: event.target.value}
+    // })
 }
 
 const amountEvent = (event) =>
 {
     setEnteredAmount(event.target.value)
+
+    
+    // setUserInput({
+    //     ...enteredInput,enteredAmount: event.target.value
+    // })
+
+    // setUserInput((prevState) =>{
+    //     return { ...prevState,setEnteredAmount: event.target.value}
+    // })
 }
 
 const dateEvent = (event) =>
 {
     setEnteredDate(event.target.value)
+
+    // setUserInput({
+    //     ...enteredDate,enteredDate: event.target.value
+    // })
+
+    // setUserInput((prevState) => {
+    //     return { ...prevState,setEnteredDate:event.target.value}
+    // })
 }
     return (
         <form>
