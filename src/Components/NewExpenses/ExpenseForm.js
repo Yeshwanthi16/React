@@ -57,24 +57,38 @@ const dateEvent = (event) =>
     //     return { ...prevState,setEnteredDate:event.target.value}
     // })
 }
+
+const submitEvent = (event) =>{
+    event.preventDefault();
+
+    const data = {
+        title:enteredTitle,
+        amount:enteredAmount,
+        date:new Date(enteredDate)
+    }
+    console.log(data)
+    setEnteredAmount('')
+    setEnteredDate('')
+    setEnteredTitle('')
+}
     return (
-        <form>
+        <form onClick={submitEvent}>
             <div className="new-expense__controls">
                 <div className=".new-expense__control">
                     <label>Title</label>
-                    <input type="text" onChange={textevent} />
+                    <input type="text" value={enteredTitle} onChange={textevent} />
                 </div>
             </div>
             <div className="new-expense__controls">
                 <div className=".new-expense__control">
                     <label>Amount</label>
-                    <input type="number" min='0.01' step='0.01' onChange={amountEvent}/>
+                    <input type="number" min='0.01' step='0.01' value={enteredAmount} onChange={amountEvent}/>
                 </div>
             </div>
             <div className="new-expense__controls">
                 <div className=".new-expense__control">
                     <label>Date</label>
-                    <input type="date"  min='2023-01=01' max='2100-01-01' onChange={dateEvent}/>
+                    <input type="date"  min='2023-01=01' max='2100-01-01' value={enteredDate} onChange={dateEvent}/>
                 </div>
             </div>
             <div className="new-expense__actions">
