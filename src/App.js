@@ -25,9 +25,17 @@ const App = () => {
     },
   ];
 
+  const display = (data) =>
+  {
+      const finalData = {
+        ...data
+      }
+      console.log(finalData)
+  }
+
   return (
     <div>
-      <NewExpenses />
+      <NewExpenses onData={display}/>
       <Expenses expenses={expenses}></Expenses>
     </div>
   );
