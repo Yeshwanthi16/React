@@ -6,14 +6,14 @@ import { useState } from "react";
 
 const Expenses = (props) => {
   const [filterValue,setfilterValue] = useState('2020')
-  const filterChnage = (data) =>
+  const filterChange = (data) =>
   {
       setfilterValue(data)
   }
   return (
     <div>
     <Card className="expenses">
-    <ExpensesFilter defaultvalue ={filterValue} onChangeFilter={filterChnage}/>
+    <ExpensesFilter defaultvalue ={filterValue} onChangeFilter={filterChange}/>
       <ExpenseItem
         title={props.expenses[0].title}
         amount={props.expenses[0].amount}
