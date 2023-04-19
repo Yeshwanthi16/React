@@ -5,36 +5,22 @@ import ExpensesFilter from "./ExpensesFilter";
 import { useState } from "react";
 
 const Expenses = (props) => {
-  const [filterValue,setfilterValue] = useState('2020')
-  const filterChange = (data) =>
-  {
-      setfilterValue(data)
+  const [filterValue, setfilterValue] = useState('2020')
+  const filterChange = (data) => {
+    setfilterValue(data)
   }
   return (
     <div>
-    <Card className="expenses">
-    <ExpensesFilter defaultvalue ={filterValue} onChangeFilter={filterChange}/>
-      <ExpenseItem
-        title={props.expenses[0].title}
-        amount={props.expenses[0].amount}
-        date={props.expenses[0].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.expenses[1].title}
-        amount={props.expenses[1].amount}
-        date={props.expenses[1].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.expenses[2].title}
-        amount={props.expenses[2].amount}
-        date={props.expenses[2].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.expenses[3].title}
-        amount={props.expenses[3].amount}
-        date={props.expenses[3].date}
-      ></ExpenseItem>
-    </Card>
+      <Card className="expenses">
+        <ExpensesFilter defaultvalue={filterValue} onChangeFilter={filterChange} />
+        {props.items.map((expenses) => (
+        <ExpenseItem 
+        title={expenses.title} 
+        amount={expenses.amount} 
+        date={expenses.data} 
+        />
+        ))}
+      </Card>
     </div>
   );
 }
